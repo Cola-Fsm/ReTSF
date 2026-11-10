@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Full CAF; one saved best configuration per prediction horizon.
-# Sources: tuning_logs/CAF_test_MAE (selected by complete CAF test MAE).
-# H96: best_CAF_test_MAE_v1_ELC_H96.json; ELC_L320_H96_tr00013.
-# H192: best_CAF_test_MAE_v1_ELC_H192.json; ELC_L320_H192_tr00034.
-# H336: best_CAF_test_MAE_v1_ELC_H336.json; ELC_L320_H336_tr00035.
-# H720: best_CAF_test_MAE_v1_ELC_H720.json; ELC_L320_H720_tr00034.
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../.." && pwd)"
@@ -22,7 +16,6 @@ LOG_ROOT="${LOG_ROOT:-$PROJECT_ROOT/logs/CAF/full/$RUN_TAG/$DATASET}"
 unset PYTORCH_CUDA_ALLOC_CONF
 mkdir -p -- "$OUTPUT_ROOT" "$LOG_ROOT"
 
-# horizon warmup_epochs gain_epochs learning_rate patch_len hidden rank_weight rank_margin rank_min_gap
 while read -r horizon warmup gain_epochs learning_rate patch_len hidden rank_weight rank_margin rank_min_gap; do
     run_tag="full_${DATASET}_H${horizon}_seed2025_${RUN_TAG}"
     printf '\n[CAF full] Dataset=%s | Horizon=%s | Seed=2025\n' "$DATASET" "$horizon"
