@@ -1,0 +1,99 @@
+model_name=TimeFilter
+
+python -u run.py \
+  --task_name Exp_TimeFilter \
+  --is_training 1 \
+  --root_path ./dataset/traffic/ \
+  --data_path traffic.csv \
+  --model_id traffic_320_96 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --use_multi_gpu \
+  --devices 0,1 \
+  --seq_len 320 \
+  --label_len 48 \
+  --pred_len 96 \
+  --e_layers 2 \
+  --d_layers 1 \
+  --factor 3 \
+  --enc_in 862 \
+  --dec_in 862 \
+  --c_out 862 \
+  --d_model 32 \
+  --d_ff 128 \
+  --des 'Exp' \
+  --batch_size 1 \
+  --itr 1
+
+python -u run.py \
+  --task_name Exp_TimeFilter \
+  --is_training 1 \
+  --root_path ./dataset/traffic/ \
+  --data_path traffic.csv \
+  --model_id traffic_320_192 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 320 \
+  --label_len 48 \
+  --pred_len 192 \
+  --e_layers 2 \
+  --d_layers 1 \
+  --factor 3 \
+  --enc_in 862 \
+  --dec_in 862 \
+  --c_out 862 \
+  --d_model 32 \
+  --d_ff 128 \
+  --des 'Exp' \
+  --batch_size 4 \
+  --itr 1
+
+python -u run.py \
+  --task_name Exp_TimeFilter \
+  --is_training 1 \
+  --root_path ./dataset/traffic/ \
+  --data_path traffic.csv \
+  --model_id traffic_320_336 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 320 \
+  --label_len 48 \
+  --pred_len 336 \
+  --e_layers 2 \
+  --d_layers 1 \
+  --factor 3 \
+  --enc_in 862 \
+  --dec_in 862 \
+  --c_out 862 \
+  --d_model 32 \
+  --d_ff 128 \
+  --des 'Exp' \
+  --batch_size 4 \
+  --itr 1
+
+python -u run.py \
+  --task_name Exp_TimeFilter \
+  --is_training 1 \
+  --root_path ./dataset/traffic/ \
+  --data_path traffic.csv \
+  --model_id traffic_320_720 \
+  --model $model_name \
+  --data custom \
+  --features M \
+  --seq_len 320 \
+  --label_len 48 \
+  --pred_len 720 \
+  --e_layers 2 \
+  --d_layers 1 \
+  --factor 3 \
+  --enc_in 862 \
+  --dec_in 862 \
+  --c_out 862 \
+  --d_model 32 \
+  --d_ff 128 \
+  --des 'Exp' \
+  --batch_size 4 \
+  --itr 1
